@@ -20,4 +20,8 @@ if __name__ == '__main__':
             Manejador.mostrar(liista)
         elif opc == 5:
             print("Gracias por elegirnos")
+        print("Opcion 1:Mostrar la el dia y hora de menor y mayor valor")
+        print("Opcion 2: Indicar la temperatura promedio mensual por cada hora")
+        print("Opcion 3: Mostrar los parametros meteorológicos de un día")
+        print("Opcion 4: Mostrar todo")
         opc = int(input("Ingrese nuevamente una opcion: "))

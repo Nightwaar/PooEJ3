@@ -21,27 +21,73 @@ class Manejador:
             print("-------Dia: {}".format(self.__lista.index(dia)+1))
             for fila in dia:
                 print(fila)
+#============================================================================================================
+    def mayortemp(self):
+        for dia in self.__lista:
+            mayor = 0
+            for hora in dia:
+                if hora.mostrartemp()>mayor:
+                    mayor = hora.mostrartemp()
+            print("La mayor temperatura del día es: {}".format(mayor))
+    def mayorhum(self):
+        for dia in self.__lista:
+            mayor = 0
+            for hora in dia:
+                if hora.mostrarhum()>mayor:
+                    mayor=hora.mostrarhum()
+            print("La mayor humedad del día es: {}".format(mayor))
+    def mayorpres(self):
+        for dia in self.__lista:
+            mayor = 0
+            for hora in dia:
+                if hora.mostrarpres()>mayor:
+                    mayor=hora.mostrarpres()
+            print("La mayor presion del día es: {}".format(mayor))
+    def menortemp(self):
+        for dia in self.__lista:
+            menor = 9999
+            for hora in dia:
+                if hora.mostrartemp()<menor:
+                    menor=hora.mostrartemp()
+            print("La menor temperatura del día es: {}".format(menor))
+    def menorhum(self):
+        for dia in self.__lista:
+            menor = 9999
+            for hora in dia:
+                if hora.mostrarhum()<menor:
+                    menor=hora.mostrarhum()
+            print("La menor humedad del día es: {}".format(menor))
+    def menorpres(self):
+        for dia in self.__lista:
+            menor = 9999
+            for hora in dia:
+                if hora.mostrarpres()<menor:
+                    menor=hora.mostrarpres()
+            print("La menor presion del día es: {}".format(menor))
 #========================================================================================================================================================                
-    def accion1(lista):
-        print("Gay")
+    def accion1(self):
+        self.mayortemp()
+        self.mayorhum()
+        self.mayorpres()
+        self.menortemp()
+        self.menorhum()
+        self.menorpres()
 #=========================================================================================================================================================
-    def accion2(self,lista):       
+    def accion2(self):       
         for hora in self.__lista:
             temp = 0
-            hora = 0
+            con = 0
             for dia in hora:
-                temp =sum(lista[[dia-1][hora]])
-                hora +=1
-            total = temp/hora
-            print("El promedio del día {} es: {}".format(dia-1,total))
+                temp +=dia.mostrartemp()
+                con +=1
+            total = temp/con
+            print("El promedio de la hora es: {}".format(total))
         return
-    def accion3(lista):
+#=======================================================================================================================
+    def accion3(self):
         numdia = int(input("Ingrese el día para mostrar sus parámetros: "))
         print ("'Hora' 'Temperatura' 'Humedad' 'Presión'",sep='    ')
-        hora= 0
-        for i in lista:
-            formato = "{:<5}|{:<10}|{:>5}|{:>10}"
-            fila_formateada = formato.format(*lista)
-            print("hora",fila_formateada)
-            hora=sum(1)
+        for hora in self.__lista[numdia-1]:
+            #print(hora)
+            print("{}         {}        {}        {}".format(hora,hora.mostrartemp(),hora.mostrarhum(),hora.mostrarpres()))         
         return
